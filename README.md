@@ -1,2 +1,2 @@
 # workshop
-workshop
+workshop angular
