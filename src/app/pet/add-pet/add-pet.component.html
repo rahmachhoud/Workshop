@@ -1,0 +1,39 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center" color="accent">Add Pet</h2>
+  <form [formGroup]="form" (ngSubmit)="petService.submit(form.value)">
+    <div class="form-group">
+      <label for="nom">Pet's Name:</label>
+      <input  type="text"  formControlName="nom" placeholder="nom" name="nom" class="form-control" id="nom" >
+
+    </div>
+
+    <div class="form-group">
+      <label for="age">age:</label>
+      <input type="number" formControlName="age" placeholder="age" name="password" class="form-control" id="age">
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="type">type:</label>
+      <input type="text" formControlName="type" placeholder="type" name="type" class="form-control" id="type">
+    </div>
+
+    <div class="form-group">
+      <label for="sexe">sexe:</label>
+      <input type="text" formControlName="sexe" placeholder="sexe" name="sexe" class="form-control" id="sexe">
+    </div>
+
+    <div class="form-group">
+      <label for="prix">prix:</label>
+      <input type="number" formControlName="prix" placeholder="prix" name="prix" class="form-control" id="prix">
+    </div>
+    <div class="form-group">
+      <label>image</label>
+      <input id="file" type="file" formControlName="image" (change)="onFileChange($event)">
+    </div>
+    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:100px">
+
+    <button  mat-raised-button color="accent" type="submit" [disabled]="form.invalid">Add</button>
+  </form>
+</div>

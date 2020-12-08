@@ -1,0 +1,38 @@
+<div class="col-md-6 user-container">
+  <h2 style="margin: auto"> Pets Details</h2>
+
+  <label for="search" class="col-sm-2 col-form-label" style="text-align: justify;"> search</label>
+  <div class="col-sm-6">
+    <input type="text" [(ngModel)]="searchValue" class="form-control" id="search" >
+  </div>
+
+  <!--<button class="btn btn-danger" style="width:100px" [routerLink]="['/addPet']"> Add pet</button>-->
+<div class="row" >
+    <tr *ngFor="let p of pets | searchfilter:searchValue ">
+
+      <div class="col" *ngFor="let i of [1]">
+        <div class="card shadow-sm">
+          <img src="{{p.fileSource}}" style="height: 200px; width:200px"/>
+          <div class="card-body">
+            <p class="card-text">{{p.nom}}</p>
+
+            <p class="card-text">Price : {{p.prix}}</p>
+         
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary" mat-raised-button color="accent" [routerLink]="['details',p.id]">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary"  [routerLink]="['editPet',p.id]">Edit</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="petService.deletepet(p.id)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </tr>
+</div>
+
+
+
+</div>

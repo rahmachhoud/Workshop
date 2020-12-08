@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-lg-12 col-md-12 sol-sm-12">
+      <body>
+      <table class="table table-striped">
+        <tr>
+          <td>{{productData['type']}}'s Name :</td>
+          <td>{{productData['nom']}}</td>
+        </tr>
+        <tr>
+          <td>Gender :</td>
+          <td>{{productData['sexe']}}</td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td>{{productData['prix']}} DT</td>
+
+
+        </tr>
+
+        <tr>
+          <td>image :</td>
+        <td><img src="{{productData['fileSource']}}" style="height: 400px; width:400px"/>  <app-child-pet [size]="productData['id']" (sizeChange)="fontSizePx=$event"></app-child-pet></td>
+        </tr>
+      </table>
+
+      </body>
+      <br>
+
+    </div>
+  </div>
+</div>
