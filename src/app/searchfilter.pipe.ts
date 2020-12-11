@@ -11,8 +11,7 @@ export class SearchfilterPipe implements PipeTransform {
       return Pets;
     }
     return Pets.filter(p =>
-
-p.nom.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
+    p.nom.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       p.type.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()) ||
       p.sexe.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
   }

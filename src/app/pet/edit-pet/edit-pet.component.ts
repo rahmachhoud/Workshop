@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PetService} from '../../shared/pet.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Pet} from '../../model/Pet';
 import {first} from 'rxjs/operators';
 
@@ -13,6 +13,7 @@ import {first} from 'rxjs/operators';
 export class EditPetComponent implements OnInit {
   p;
   editForm: FormGroup;
+  imageSrc: string;
   constructor(public petService: PetService, private router: Router, private fb: FormBuilder, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -29,7 +30,9 @@ export class EditPetComponent implements OnInit {
       type: ['', Validators.required],
       age: ['', Validators.required],
       sexe: ['', Validators.required],
-      prix: ['', Validators.required]
+      prix: ['', Validators.required],
+      image: [null, [Validators.required]],
+      fileSource: new FormControl('', [Validators.required])
     });
     this.petService.getPetById(+id)
       .subscribe( data => {
@@ -61,6 +64,46 @@ export class EditPetComponent implements OnInit {
 
     });
 
+  }
+  onFileChange(event) {
+
+    const reader = new FileReader();
+
+
+
+    if (event.target.files && event.target.files.length) {
+
+      const [image] = event.target.files;
+
+      reader.readAsDataURL(image);
+
+
+
+      reader.onload = () => {
+
+
+
+        this.imageSrc = reader.result as string;
+
+
+
+        this.editForm.patchValue({
+
+          fileSource: reader.result
+
+        });
+
+
+
+      };
+
+
+
+    }
+
+  }
+  get nom() {
+    return this.nom.get('nom');
   }
 
 }

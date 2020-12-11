@@ -20,7 +20,7 @@
 
         <tr>
           <td>image :</td>
-        <td><img src="{{productData['fileSource']}}" style="height: 400px; width:400px"/>  <app-child-pet [size]="productData['id']" (sizeChange)="fontSizePx=$event"></app-child-pet></td>
+        <td><img src="{{productData['fileSource']}}" style="height: 400px; width:400px"/>  <app-child-pet [like]="productData['id']" (sizeChange)="fontSizePx=$event"></app-child-pet></td>
         </tr>
       </table>
 

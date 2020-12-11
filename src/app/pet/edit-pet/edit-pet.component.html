@@ -1,5 +1,5 @@
 <div class="col-md-6 user-container">
-  <h2 class="text-center">Add User</h2>
+  <h2 class="text-center">Edit Pet</h2>
   <form [formGroup]="editForm" (ngSubmit)="modifpet()">
     <div class="form-group">
       <label for="nom">Name:</label>
@@ -19,15 +19,20 @@
     </div>
 
     <div class="form-group">
-      <label for="sexe">sexe:</label>
+      <label for="sexe">Gender:</label>
       <input type="text" formControlName="sexe" placeholder="sexe" name="sexe" class="form-control" id="sexe">
     </div>
 
     <div class="form-group">
-      <label for="prix">prix:</label>
+      <label for="prix">price:</label>
       <input type="number" formControlName="prix" placeholder="prix" name="prix" class="form-control" id="prix">
     </div>
+    <div class="form-group">
+      <label>image</label>
+      <input id="file" type="file" formControlName="image" (change)="onFileChange($event)">
+    </div>
+    <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:100px">
 
-    <button class="btn btn-success" type="submit">Add</button>
+    <button mat-raised-button color="accent" type="submit" [disabled]="editForm.invalid">Edit</button>
   </form>
 </div>
