@@ -22,6 +22,7 @@ import { DetailsPetComponent } from './pet/details-pet/details-pet.component';
 import { ChildPetComponent } from './pet/child-pet/child-pet.component';
 import { LoginComponent } from './pet/login/login.component';
 import {MatIconModule} from '@angular/material/icon';
+import { BackButtonComponent } from './pet/back-button/back-button.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import {MatIconModule} from '@angular/material/icon';
     NavbarComponent,
     DetailsPetComponent,
     ChildPetComponent,
-    LoginComponent
+    LoginComponent,
+    BackButtonComponent
   ],
     imports: [
         BrowserModule,

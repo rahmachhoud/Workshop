@@ -13,11 +13,11 @@ export class AddPetComponent implements OnInit {
   imageSrc: string;
   constructor(public petService: PetService, private router: Router, private fb: FormBuilder) {
     this.form = this.fb.group({
-      nom: [null, [Validators.required, Validators.minLength(3)]],
+      nom: [null, [Validators.required, Validators.minLength(5)]],
       age: [null, [Validators.required ]],
       prix: [null, [Validators.required]],
-      sexe: [null, [Validators.required]],
-      type: [null, [Validators.required]],
+      sexe: [null, [Validators.required, Validators.minLength(4)]],
+      type: [null, [Validators.required, Validators.minLength(2)]],
       image: [null, [Validators.required]],
       fileSource: new FormControl('', [Validators.required])
 
@@ -65,5 +65,8 @@ export class AddPetComponent implements OnInit {
   }
   get nom() {
     return this.nom.get('nom');
+  }
+  get f(){
+    return this.form.controls;
   }
 }

@@ -10,7 +10,7 @@ import {PetService} from '../../shared/pet.service';
 export class ListPetComponent implements OnInit {
   searchValue: string;
 pets;
-
+prix;
   constructor(public petService: PetService) { }
 
   ngOnInit(): void {
@@ -23,6 +23,7 @@ pets;
         console.log(errors);
       };
   }
+
 
   }
 

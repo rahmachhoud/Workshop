@@ -26,10 +26,10 @@ export class EditPetComponent implements OnInit {
     }
     this.editForm = this.fb.group({
       id: [''],
-      nom: ['', Validators.required],
-      type: ['', Validators.required],
+      nom: ['', Validators.required, Validators.minLength(5)],
+      type: ['', Validators.required, Validators.minLength(4)],
       age: ['', Validators.required],
-      sexe: ['', Validators.required],
+      sexe: ['', Validators.required, Validators.minLength(4)],
       prix: ['', Validators.required],
       image: [null, [Validators.required]],
       fileSource: new FormControl('', [Validators.required])
@@ -102,8 +102,8 @@ export class EditPetComponent implements OnInit {
     }
 
   }
-  get nom() {
-    return this.nom.get('nom');
-  }
 
+  get ff(){
+    return this.editForm.controls;
+  }
 }

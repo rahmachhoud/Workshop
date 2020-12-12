@@ -6,6 +6,12 @@
       <input  type="text"  formControlName="nom" placeholder="nom" name="nom" class="form-control" id="nom" >
 
     </div>
+    <div *ngIf="f.nom.touched">
+      min length is 5
+    </div>
+    <div *ngIf="f.nom.valid">
+     name is valid
+    </div>
 
     <div class="form-group">
       <label for="age">age:</label>
@@ -18,12 +24,23 @@
       <label for="type">type:</label>
       <input type="text" formControlName="type" placeholder="type" name="type" class="form-control" id="type">
     </div>
+    <div *ngIf="f.type.touched">
+      write the type please
+    </div>
+    <div *ngIf="f.type.valid">
+      type is valid
+    </div>
 
     <div class="form-group">
       <label for="sexe">Gender:</label>
       <input type="text" formControlName="sexe" placeholder="sexe" name="sexe" class="form-control" id="sexe">
     </div>
-
+    <div *ngIf="f.sexe.touched">
+      write the type please
+    </div>
+    <div *ngIf="f.sexe.valid">
+      gender is valid
+    </div>
     <div class="form-group">
       <label for="prix">prix:</label>
       <input type="number" formControlName="prix" placeholder="prix" name="prix" class="form-control" id="prix">
